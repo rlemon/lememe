@@ -222,14 +222,14 @@ function init() {
 		
 		meme_label.text(active_meme_item.children().text());
 		font_label.text(active_font_item.children().text());
-
+		$(meme_image_list).add(font_list).removeClass("active");
+		$(active_meme_item).add(active_font_item).addClass("active");
 		color1.miniColors('value', settings.color1);
-		color2.miniColors('value', settings.color1);
-		font_size.val(settings.font_size);
-		outline_size.val(settings.outline_size);
+		color2.miniColors('value', settings.color2);
+		font_size.val(parseFloat(settings.font_size));
+		outline_size.val(parseFloat(settings.outline_size));
 		top_input.val(settings.top_text);
 		bottom_input.val(settings.bottom_text);
-		console.log(settings)
 	}
 
 	/* check for stored api key */
