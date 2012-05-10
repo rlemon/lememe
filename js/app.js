@@ -14,20 +14,23 @@ var meme_image_list = $('#meme-images > li'),
 	generate = $('#generate'),
 	userlink = $('#img-link'),
 	spinner = $('#spinner'),
+	is_persistent = $('#persistent-data'),
 	font_size = $("#font-size"),
 	outline_size = $("#outline-size"),
 	api_key_btn = $('#api-key'),
 	api_key_input = $('#api-key-input'),
 	ctx = canvas.getContext('2d'),
-	PATH = 'images/';
+	PATH = 'images/',
+	data_key = 'lememe_data',
+	img = $("<img />")[0],
+	img_is_loaded = false;
 
 /* Draw function
  * I render the image on the page
  * */
 function draw() {
-	var img = $("<img />")[0];
-	img.src = PATH + active_meme;
-	img.onload = function(e) {
+	if( img_is_loaded ) {
+		console.log('loaded');
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.save();
@@ -48,41 +51,25 @@ function draw() {
 		}
 
 		ctx.restore();
-	};
+	} else {
+		setTimeout(draw, 100);
+	}
 }
 
-//Called on window onbeforeunload to save it all
-//localStorage uses synchronous disk i/o so obviously
-//it's not a good idea to constantly save there
-function persist_settings() {
-
-	if (!window.localStorage || !window.JSON) {
-		return;
-	}	
-
-	var storeObj = {
-		active_meme: active_meme,
-		active_font: active_font,
-		font_size: font_size.val(),
-		outline_size: outline_size.val(),
-		color1: color1.val(),
-		color2: color2.val(),
-		top_text: top_input.val(),
-		bottom_text: bottom_input.val(),
-		
-	};
-	
-	localStorage.setItem("lememe_preferences", JSON.stringify(storeObj));
-}
-
-function load_settings() {
-	var item;
-
+function store_data(data, key) {
 	if (!window.localStorage || !window.JSON) {
 		return;
 	}
-	
-	item = localStorage.getItem("lememe_preferences");
+	key = key || data_key;
+	localStorage.setItem(key, JSON.stringify(data));
+}
+
+function get_data(key) {
+	if (!window.localStorage || !window.JSON) {
+		return;
+	}
+	key = key || data_key;
+	var item = localStorage.getItem(key);
 	
 	if (!item) {
 		return;
@@ -91,6 +78,30 @@ function load_settings() {
 	return JSON.parse( item );
 }
 
+function remove_data(key) {
+	if (!window.localStorage || !window.JSON) {
+		return;
+	}
+	key = key || data_key;
+	localStorage.removeItem(key);
+}
+
+function persist_settings() {
+	if( is_persistent.is(':checked') ) {
+		store_data({
+			'active_meme': active_meme,
+			'active_font': active_font,
+			'color1': color1.val(),
+			'color2': color2.val(),
+			'font_size': font_size.val(),
+			'outline_size': outline_size.val(),
+			'top_input': top_input.val(),
+			'bottom_input': bottom_input.val()
+		});
+	} else {
+		remove_data();
+	}
+}
 
 function swap_active_meme(e) {
 	meme_image_list.each(function(i, el) {
@@ -102,8 +113,10 @@ function swap_active_meme(e) {
 			meme_label.text($(el.children[0]).text());
 		}
 	});
+	img_is_loaded = false;
+	img.src = PATH + active_meme;
 	draw();
-	e.preventDefault();
+	if(e) e.preventDefault();
 }
 
 function swap_active_font(e) {
@@ -188,56 +201,61 @@ function register_events() {
 }
 
 function init() {
-	var settings = load_settings(),
-		active_meme_item,
-		active_font_item;
-	
 	register_events();
-	
 	/* color picker init */
 	$('input.color-picker').miniColors({
 		change: function(hex, rgb) {
 			draw();
 		}
 	});
-
 	font_size.on('slide', draw);
 	outline_size.on('slide', draw);
-
 	/* preview font faces */
 	font_list.each(function() {
 		var link = $(this).children('a');
 		link.css('font-family', link.attr('data-font'));
 	});
-
-	if (settings) {
-		active_meme_item = meme_image_list.filter(function(){
-			return $(this.children[0]).data('img') === settings.active_meme;
-		});
-		active_font_item = font_list.filter(function(){
-			return $(this.children[0]).data('font') === settings.active_font;
-		});
-		active_meme = settings.active_meme;
-		active_font = settings.active_font;
+	var data = get_data();
+	if (data) {
+		active_meme = data.active_meme;
+		active_font = data.active_font;
+		color1.miniColors('value', data.color1);
+		color2.miniColors('value', data.color2);
+		font_size.val(data.font_size);
+		outline_size.val(data.outline_size);
+		top_input.val(data.top_input);
+		bottom_input.val(data.bottom_input);
 		
+		var active_meme_item = meme_image_list.filter(function(){
+			return $(this.children[0]).data('img') === active_meme;
+		});
+		var active_font_item = font_list.filter(function(){
+			return $(this.children[0]).data('font') === active_font;
+		});
 		meme_label.text(active_meme_item.children().text());
 		font_label.text(active_font_item.children().text());
 		$(meme_image_list).add(font_list).removeClass("active");
 		$(active_meme_item).add(active_font_item).addClass("active");
-		color1.miniColors('value', settings.color1);
-		color2.miniColors('value', settings.color2);
-		font_size.val(parseFloat(settings.font_size));
-		outline_size.val(parseFloat(settings.outline_size));
-		top_input.val(settings.top_text);
-		bottom_input.val(settings.bottom_text);
+		
+		is_persistent.attr("checked", "checked");
 	}
 
 	/* check for stored api key */
 	if( $.cookie('lememe-api-key') ) {
 		api_key_input.val($.cookie('lememe-api-key'));
 	}
+	
+	$('.info-popover').popover();
+
+	img_is_loaded = false;
+	img.src = PATH + active_meme;
+
+	img.onload = function(e) {
+		img_is_loaded = true;
+	};
 	/* draw the default image */
-	draw();
+
+	setTimeout(draw,200); // hack fix
 }
 
 init();
