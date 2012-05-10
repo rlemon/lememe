@@ -37,7 +37,6 @@ function draw() {
 		ctx.font = "bold " + font_size.val() + "px " + active_font;
 		ctx.textAlign = "center";
 		ctx.fillStyle = color1.val();
-
 		ctx.fillText(top_input.val(), img.width / 2, parseFloat(font_size.val()), img.width);
 		ctx.fillText(bottom_input.val(), img.width / 2, img.height - 10, img.width);
 
@@ -51,6 +50,47 @@ function draw() {
 		ctx.restore();
 	};
 }
+
+//Called on window onbeforeunload to save it all
+//localStorage uses synchronous disk i/o so obviously
+//it's not a good idea to constantly save there
+function persist_settings() {
+
+	if (!window.localStorage || !window.JSON) {
+		return;
+	}	
+
+	var storeObj = {
+		active_meme: active_meme,
+		active_font: active_font,
+		font_size: font_size.val(),
+		outline_size: outline_size.val(),
+		color1: color1.val(),
+		color2: color2.val(),
+		top_text: top_input.val(),
+		bottom_text: bottom_input.val(),
+		
+	};
+	
+	localStorage.setItem("lememe_preferences", JSON.stringify(storeObj));
+}
+
+function load_settings() {
+	var item;
+
+	if (!window.localStorage || !window.JSON) {
+		return;
+	}
+	
+	item = localStorage.getItem("lememe_preferences");
+	
+	if (!item) {
+		return;
+	}
+	
+	return JSON.parse( item );
+}
+
 
 function swap_active_meme(e) {
 	meme_image_list.each(function(i, el) {
@@ -143,10 +183,35 @@ function register_events() {
 		e.preventDefault();
 		return false;
 	});
+	//Persist settings before closing tab
+	$(window).on("beforeunload", persist_settings);
 }
 
 function init() {
+	var settings = load_settings(),
+		active_meme_item,
+		active_font_item;
 	
+	if (settings) {
+		active_meme_item = meme_image_list.filter(function(){
+			return $(this.children[0]).data('img') === settings.active_meme;
+		});
+		active_font_item = font_list.filter(function(){
+			return $(this.children[0]).data('font') === settings.active_font;
+		});
+		active_meme = settings.active_meme;
+		active_font = settings.active_font;
+		
+		meme_label.text(active_meme_item.children().text());
+		font_label.text(active_font_item.children().text());
+
+		color1.val(settings.color1);
+		color2.val(settings.color1);
+		font_size.val(settings.font_size);
+		outline_size.val(settings.outline_size);
+		top_input.val(settings.top_text);
+		bottom_input.val(settings.bottom_text);
+	}
 	register_events();
 	
 	/* color picker init */
