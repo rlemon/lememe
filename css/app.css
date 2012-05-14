@@ -1,7 +1,57 @@
+@import url(http://fonts.googleapis.com/css?family=Chau+Philomene+One|Russo+One|Days+One|Gorditas:700|Bree+Serif|Krona+One|Averia+Gruesa+Libre|VT323|Bowlby+One+SC|Open+Sans+Condensed:700);
+
 body {
 	padding-top: 48px;
 	padding-bottom: 10px;    
 }
 #cvs {
-	outline: 2px dashed red;   
+	outline: 2px dashed red;
+	background-color: #eee;
+	height: 360px;
+	width: 480px; 
+}
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 34px 0 14px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+#img-link {
+	border: none;
+	box-shadow: none;
+	outline: none;
+	width: 360px;
+}
+
+.label-dropdown-selection {
+	display: inline-block;
+	padding: 4px 10px 4px;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 18px;
+	color: #999;
+}
+
+.slider.addon-slider { 
+	width: 140px; 
+	padding-left: 10px; 
+	padding-right: 12px; 
+}
+
+input[data-slider] {
+	margin-bottom: 0px;
+}
+
+.meme-display {
+	position: relative;
+}
+
+.meme-display img {
+	position: absolute;
+	top: 116px;
+	left: 176px;
 }
