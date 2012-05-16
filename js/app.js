@@ -95,21 +95,17 @@ function draw() {
 		$('#spinner-loading').hide();
 		var maxh = 640,
 			maxw = 480;
-		var ratio = maxh / maxw;
-		if (img.height / img.width > ratio) {
-			if (img.height > maxh) {
-				img.width = Math.round(img.width * (maxh / img.height));
-				img.height = maxh;
-			}
-		} else {
-			if (img.width > maxw) {
-				img.height = Math.round(img.height * (maxw / img.width));
-				img.width = maxw;
-			}
+        var ratio = 1;
+
+        if(img.width > maxw) {
+            ratio = maxw / img.width;
+        } else if(img.height > maxh) {
+            ratio = maxh / img.height;
 		}
-		
+		img.height = img.height * ratio;
+		img.width = img.width * ratio;
 		canvas.height = img.height;
-		canvas.width = img.width;
+		canvas.width = img.width * ratio;
 		ctx.save();
 		ctx.clearRect(0, 0, img.height, img.width);
 		ctx.drawImage(img, 0, 0, img.width, img.height);
