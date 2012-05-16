@@ -288,6 +288,36 @@ function register_events() {
 	});
 	
 	$('.info-popover').popover();
+	
+	$(document).on('dragover', function(e) {
+		e.preventDefault();
+		return false;
+	});
+	
+	$(document).on('drop', function(e) {
+		var files = e.dataTransfer.files;
+		if ( files.length === 1 ) {
+			img_is_loaded = false;
+			$('#spinner-loading').show();
+			var file = files[0];
+			if ( file.type.indexOf( 'image' ) === -1 ) { 
+				Notifier.error('Not an image!', 'you may only drop images to the page');
+				e.preventDefault();
+				return false;
+			}
+			var reader = new FileReader();
+			reader.readAsDataURL( file );
+			reader.onload = function ( ev ) {
+				img.src = ev.target.result;
+				draw();
+			};
+		} else {
+			Notifier.error('Too many files!', 'you may only drop one image at a time to the page');
+		}
+		e.preventDefault();
+		return false;
+	});
+	
 }
 
 function init() {
