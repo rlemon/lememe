@@ -97,13 +97,13 @@ function draw() {
 			maxw = 480,
 			height = img.height,
 			width = img.width;
-
+		console.log('resizing to ', width + ' * ' height);
 		while (height > maxh || width > maxw) {
 			--height;
 			--width;
 		}
-		canvas.height = img.height = height;
-		canvas.width = img.width = width;
+		canvas.height = height;
+		canvas.width = width;
 		ctx.save();
 		ctx.clearRect(0, 0, height, width);
 		ctx.drawImage(img, 0, 0, width, height);
