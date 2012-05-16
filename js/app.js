@@ -99,7 +99,7 @@ function draw() {
 			high = 375;
 			low = 500;
 		} else if ( img.width === img.height ) {
-			low = high;
+			img.width = img.height = low = high;
 		}
 		if(img.width >= low && ratio <= 1){
 		img.width = low;
