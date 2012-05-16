@@ -178,33 +178,11 @@ function generate_meme(e) {
 		type: 'POST',
 		data: {
 			type: 'base64',
-			key: api_key_input.val(),
+			key: api_key.val(),
 			image: dataURL
 		},
 		dataType: 'json'
 	}).success(image_uploaded).error(image_upload_failed);
-	e.preventDefault();
-	return false;
-}
-
-function update_api_key(e) {
-	if( $.cookie('lememe-api-key') != $(this).val() ) {
-		$.cookie('lememe-api-key', $(this).val(), { expires: 7 });
-		Notifier.info('Your API KEY will be rememberd in your browsers cookies for 7 days. If you would like to revert to the old key please clear your browsers cookies and refresh the page.', 'API KEY Saved!');
-	}
-	$(this).unbind('blur', update_api_key);
-	api_key_btn.show();
-	api_key_input.hide();
-	e.preventDefault();
-	return false;
-}
-
-function show_api_key_input(e) {
-	api_key_btn.hide();
-	api_key_input.show();
-	api_key_input.bind('blur', update_api_key);
-	api_key_input[0].select();
-	api_key_input[0].focus();
 	e.preventDefault();
 	return false;
 }
