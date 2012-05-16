@@ -94,7 +94,7 @@ function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
 		var maxh = 640,
-			maxw = 500;
+			maxw = 480;
 		var ratio = maxh / maxw;
 		if (img.height / img.width > ratio) {
 			// height is the problem
