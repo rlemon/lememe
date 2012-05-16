@@ -93,21 +93,6 @@ var meme_data = {
 function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
-		var ratio = img.height / img.width,
-		low = 375, high = 500;
-		if( img.width > img.height ) {
-			high = 375;
-			low = 500;
-		} else if ( img.width === img.height ) {
-			img.width = img.height = low = high;
-		}
-		if(img.width >= low && ratio <= 1){
-		img.width = low;
-		img.height = img.width * ratio; 
-		} else if(img.height >= high){
-		img.height = high;
-		img.width = img.height / ratio;
-		}
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.save();
@@ -323,8 +308,17 @@ function register_events() {
 			var reader = new FileReader();
 			reader.readAsDataURL( file );
 			reader.onload = function ( ev ) {
-				img.src = ev.target.result;
-				draw();
+				var tmp = $('<img />');
+				tmp.src = ev.target.result;
+				tmp.onload = function() {
+					if( tmp.width <= 500 && tmp.height <= 625 ) {
+						img.src = tmp.src;
+						draw();
+					} else {
+						Notifier.error('Too Large!', 'Max image size is 500px wide by 625px tall');
+					}
+				}
+
 			};
 		} else {
 			Notifier.error('Too many files!', 'you may only drop one image at a time to the page');
