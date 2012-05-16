@@ -97,14 +97,12 @@ function draw() {
 			maxw = 480;
 		var ratio = maxh / maxw;
 		if (img.height / img.width > ratio) {
-			// height is the problem
 			if (img.height > maxh) {
 				img.width = Math.round(img.width * (maxh / img.height));
 				img.height = maxh;
 			}
 		} else {
-			// width is the problem
-			if (img.width > maxh) {
+			if (img.width > maxw) {
 				img.height = Math.round(img.height * (maxw / img.width));
 				img.width = maxw;
 			}
