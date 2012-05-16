@@ -59,6 +59,7 @@ input[data-slider] {
 }
 .image-container {
  position: relative;
+ min-height: 360px;
 }
 .image-container > img {
 	position: absolute;
