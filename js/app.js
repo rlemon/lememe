@@ -93,6 +93,10 @@ var meme_data = {
 function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
+		while(img.height > 480 || img.width > 480) {
+			img.height--;
+			img.width--;
+		}
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.save();
