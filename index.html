@@ -14,136 +14,138 @@
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a href="http://rlemon.github.com/lememe/" class="brand" title="LeMEME - Online Meme Generator - Free Trolling for all!">LeMeme Generator</a>
-			<form class="nosubmit-form navbar-form">
-			<ul class="nav pull-right">
-				<li>
-					<button type="button" class="btn btn-info" id="api-key" title="Change API Key">API KEY</button>
-					<input type="text" id="api-key-input" value="eef75ee1f4d14ddf5e48e67e6531f739" style="display: none;" />
-				</li>
-			</ul>
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="http://rlemon.github.com/lememe/" class="brand" title="LeMEME - Online Meme Generator - Free Trolling for all!">LeMeme Generator</a>
+            <form class="nosubmit-form navbar-form">
+            <ul class="nav">
+                <li>
+                    <button type="button" class="btn btn-info" id="btn-meme-list" title="Show Meme list" data-title-alt="Hide Meme list">MEME Image <i class="icon-chevron-up icon-white" style="display: none;"></i><i class="icon-chevron-down icon-white"></i></button>
+                </li>    
+            </ul>
 			</form>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="span6">
-			<div class="row">
-				<canvas id="cvs">Get a real browser! http://www.google.com/chrome </canvas>
-			</div>
-			<div class="row">
-				<input type="text" id="img-link" placeholder="Generated image url will appear here."/>
-				<img src="images/spinner.gif" id="spinner" class="vertical-align: middle'" hidden/>
-			</div>
-		</div>
-		<div class="span6">
-			<form class="well nosubmit-form">
-				<fieldset>
-					<div class="control-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Image <span class="caret"></span></a>
-							<ul class="dropdown-menu" id="meme-images">
-								<li class="active"><a href="#" data-img="yuno.jpg">Y U NO guy</a></li>
-								<li><a href="#" data-img="loktarian.jpg">Loktarian</a></li>
-								<li><a href="#" data-img="trollface.jpg">Troll Face</a></li>
-								<li><a href="#" data-img="fry.jpg">Fry (Not sure if...)</a></li>
-								<li><a href="#" data-img="goodguy.jpg">Good Guy Greg</a></li>
-								<li><a href="#" data-img="kid.jpg">Success Kid</a></li>
-								<li><a href="#" data-img="dontletgo.jpg">Helicopter Kid</a></li>
-								<li><a href="#" data-img="philosoraptor.jpg">Philosoraptor</a></li>
-								<li><a href="#" data-img="rainbowpony.jpg">Rainbow Pony</a></li>
-								<li><a href="#" data-img="scumbag.jpg">Scumbag Steve</a></li>
-								<li><a href="#" data-img="socailakward.jpg">Socially Awkward Penguin</a></li>
-								<li><a href="#" data-img="alone.jpg">Forever Alone</a></li>
-								<li><a href="#" data-img="doseke.jpg">Dos Equis Man</a></li>
-								<li><a href="#" data-img="hipster.jpg">Hipster Supreme</a></li>
-								<li><a href="#" data-img="pony.jpg">Happy Pony</a></li>
-								<li><a href="#" data-img="penguins.jpg">Friendly Penguins</a></li>
-								<li><a href="#" data-img="tannedguy.jpg">Super Tanned Guy</a></li>
-								<li><a href="#" data-img="babygodfather.jpg">Baby Godfather</a></li>
-								<li><a href="#" data-img="photogenicguy.jpg">Overly Photogenic Guy</a></li>
-							</ul><span class="label-dropdown-selection" id="label-active-meme">Y U NO guy</span>
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="btn-group">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Font <span class="caret"></span></a>
-							<ul class="dropdown-menu" id="meme-fonts">
-								<li class="active"><a href="#" data-font="'Chau Philomene One', sans-serif">Chau Philomene One</a></li>
-								<li><a href="#" data-font="'Russo One', sans-serif">Russo One</a></li>
-								<li><a href="#" data-font="'Days One', sans-serif">Days One</a></li>
-								<li><a href="#" data-font="'Gorditas', cursive">Gorditas</a></li>
-								<li><a href="#" data-font="'Bree Serif', serif">Bree Serif</a></li>
-								<li><a href="#" data-font="'Krona One', sans-serif">Krona One</a></li>
-								<li><a href="#" data-font="'Averia Gruesa Libre', cursive">Averia Gruesa Libre</a></li>
-								<li><a href="#" data-font="'VT323', cursive">VT323</a></li>
-								<li><a href="#" data-font="'Bowlby One SC', cursive">Bowlby One SC</a></li>
-								<li><a href="#" data-font="'Open Sans Condensed', sans-serif">Open Sans Condensed</a></li>
-							</ul><span class="label-dropdown-selection" id="label-active-font">Chau Philomene One</span>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label">Colours</label>
-						<div class="controls">
-							<input type="hidden" name="color1" id="color1" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#FFFFFF">
-							<input type="hidden" name="color2" id="color2" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#000000">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label">Text Size</label>
-						<div class="controls">
-							<div class="input-prepend input-append">
-								<div class="add-on slider addon-slider" id="font-size-slider"></div>
-								<input data-slider="#font-size-slider" data-max="40" data-min="10" data-step="1" value="20" class="span1" id="font-size">
-								<span class="add-on">px</span>
+			<div class="meme-list-wrapper">
+				<div class="row offset1 meme-list-container" hidden>
+					<form>
+						<div class="control-group">
+							<div class="controls">
+								<div class="offset3 input-append">
+										<input type="text" style="display: inline-block; margin: 0 -4px -5px 0;" class="span3" id="meme-filter" placeholder="Filter List.." />
+										<button type="button" id="btn-clear-filter" class="btn">Clear</button>
+								</div>
 							</div>
 						</div>
+					</form>
+					<div id="meme-list-container" class="span10">
+
 					</div>
-					<div class="control-group">
-						<label class="control-label">Outline</label>
-						<div class="controls">
-							<div class="input-prepend input-append">
-								<div class="add-on slider addon-slider" id="outline-size-slider"></div>
-								<input data-slider="#outline-size-slider" data-max="6" data-min="0" data-step="1" value="1" class="span1" id="outline-size">
-								<span class="add-on">px</span>
-							</div>
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<input type="text" class="span5" id="text-top" placeholder="Top Line"/>
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
-						</div>
-					</div>
-					<label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <sup class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</sup></label>
-					<div class="form-actions">
-						<button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button> 
-						<button type="button" class="btn btn-large" disabled id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button> 
-					</div>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-	<hr class="soften">
-	<div class="row footer">
-		Developed by rlemon - <a href="https://github.com/rlemon/lememe/" title="Fork on GitHub">Fork on GitHub</a>
-		<span class="pull-right">
-			<a href="http://rlemon.github.com/lememe/about.html" title="About LeMEME">About</a>
-			<a href="http://rlemon.github.com/lememe/contact.html" title="Contact rlemon">Contact</a>
-			<a href="http://rlemon.github.com/lememe/legal.html" title="Legal mumbo jumbo">Legal</a>
-		</span>
-	</div>
+				</div>
+			</div>
+			
+        </div>
+    </div>
 </div>
 
+
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            <div class="row">
+                <canvas id="cvs">Get a real browser! http://www.google.com/chrome </canvas>
+            </div>
+            <div class="row">
+                <input type="text" id="img-link" placeholder="Generated image url will appear here."/>
+                <img src="images/spinner.gif" id="spinner" class="vertical-align: middle'" hidden/>
+            </div>
+        </div>
+        <div class="span6">
+            <form class="well nosubmit-form">
+				<legend>Meme Settings</legend>
+                <fieldset>
+                    <div class="control-group">
+                        <div class="btn-group">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Font <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="meme-fonts">
+                                <li class="active"><a href="#" data-font="'Chau Philomene One', sans-serif">Chau Philomene One</a></li>
+                                <li><a href="#" data-font="'Russo One', sans-serif">Russo One</a></li>
+                                <li><a href="#" data-font="'Days One', sans-serif">Days One</a></li>
+                                <li><a href="#" data-font="'Gorditas', cursive">Gorditas</a></li>
+                                <li><a href="#" data-font="'Bree Serif', serif">Bree Serif</a></li>
+                                <li><a href="#" data-font="'Krona One', sans-serif">Krona One</a></li>
+                                <li><a href="#" data-font="'Averia Gruesa Libre', cursive">Averia Gruesa Libre</a></li>
+                                <li><a href="#" data-font="'VT323', cursive">VT323</a></li>
+                                <li><a href="#" data-font="'Bowlby One SC', cursive">Bowlby One SC</a></li>
+                                <li><a href="#" data-font="'Open Sans Condensed', sans-serif">Open Sans Condensed</a></li>
+                            </ul><span class="label-dropdown-selection" id="label-active-font">Chau Philomene One</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Colours</label>
+                        <div class="controls">
+                            <input type="hidden" name="color1" id="color1" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#FFFFFF">
+                            <input type="hidden" name="color2" id="color2" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#000000">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Text Size</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append">
+                                <div class="add-on slider addon-slider" id="font-size-slider"></div>
+                                <input data-slider="#font-size-slider" data-max="40" data-min="10" data-step="1" value="20" class="span1" id="font-size">
+                                <span class="add-on">px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Outline</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append">
+                                <div class="add-on slider addon-slider" id="outline-size-slider"></div>
+                                <input data-slider="#outline-size-slider" data-max="6" data-min="0" data-step="1" value="1" class="span1" id="outline-size">
+                                <span class="add-on">px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="span5" id="text-top" placeholder="Top Line"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
+                        </div>
+                    </div>
+                    <label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
+                    <label class="checkbox"><input type="checkbox" id="toggle-custom-api"> Custom API Key <small class="info-popover" title="Imgur API Keys" data-content="The anonymous API Key allows you to upload 500 credits (approximately 50 images) per hour, and is free for anyone to get. For more information please visit http://imgur.com/register/api_anon">?</small></label>
+                    <div class="control-group" id="api-key-container" hidden>
+                        <div class="controls">
+							<div class="input-append">
+								<input type="text" class="span4" size="16" id="api-key" value="eef75ee1f4d14ddf5e48e67e6531f739" style="display: inline-block; margin-bottom: 0;" placeholder="imgur api key"/><button type="button" class="btn" id="reset-api-key" title="Reset API key to default value">reset</button>
+							</div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button> 
+                        <button type="button" class="btn btn-large" disabled id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button> 
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <hr class="soften">
+    <div class="row footer">
+        Developed by rlemon - <a href="https://github.com/rlemon/lememe/" title="Fork on GitHub">Fork on GitHub</a>
+        <span class="pull-right">
+            <a href="http://rlemon.github.com/lememe/about.html" title="About LeMEME">About</a>
+            <a href="http://rlemon.github.com/lememe/contact.html" title="Contact rlemon">Contact</a>
+            <a href="http://rlemon.github.com/lememe/legal.html" title="Legal mumbo jumbo">Legal</a>
+        </span>
+    </div>
+</div>
 <script type='text/javascript' src='js/jquery.js'></script>
-<script type='text/javascript' src='js/cookie.js'></script>
+<script type='text/javascript' src='js/util.js'></script>
+<script type='text/javascript' src='js/fragBuilder.js'></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/minicolors.js"></script>
 <script type="text/javascript" src="js/notifier.js"></script>

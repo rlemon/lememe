@@ -3600,7 +3600,7 @@ input[type="submit"].btn.btn-mini {
   bottom: 0;
 }
 
-.navbar .nav {
+.navbar > .navbar-inner > .container > .nav {
   position: relative;
   left: 0;
   display: block;
@@ -3608,16 +3608,16 @@ input[type="submit"].btn.btn-mini {
   margin: 0 10px 0 0;
 }
 
-.navbar .nav.pull-right {
+.navbar > .navbar-inner > .container > .nav.pull-right {
   float: right;
 }
 
-.navbar .nav > li {
+.navbar > .navbar-inner > .container > .nav > li {
   display: block;
   float: left;
 }
 
-.navbar .nav > li > a {
+.navbar > .navbar-inner > .container > .nav > li > a {
   float: none;
   padding: 10px 10px 11px;
   line-height: 19px;
@@ -3626,14 +3626,14 @@ input[type="submit"].btn.btn-mini {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
-.navbar .nav > li > a:hover {
+.navbar > .navbar-inner > .container > .nav > li > a:hover {
   color: #ffffff;
   text-decoration: none;
   background-color: transparent;
 }
 
-.navbar .nav .active > a,
-.navbar .nav .active > a:hover {
+.navbar > .navbar-inner > .container > .nav .active > a,
+.navbar > .navbar-inner > .container > .nav .active > a:hover {
   color: #ffffff;
   text-decoration: none;
   background-color: #222222;
@@ -3648,7 +3648,7 @@ input[type="submit"].btn.btn-mini {
   border-right: 1px solid #333333;
 }
 
-.navbar .nav.pull-right {
+.navbar > .navbar-inner > .container > .nav.pull-right {
   margin-right: 0;
   margin-left: 10px;
 }

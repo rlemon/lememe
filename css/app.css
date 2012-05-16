@@ -5,7 +5,7 @@ body {
 	padding-bottom: 10px;    
 }
 #cvs {
-	outline: 2px dashed red;   
+	outline: 10px solid Transparent;
 }
 /* Faded out hr */
 hr.soften {
@@ -41,4 +41,19 @@ hr.soften {
 
 input[data-slider] {
 	margin-bottom: 0px;
+}
+
+.meme-list-wrapper {
+ position: relative;  
+}
+.meme-list-container {
+ position: absolute;
+ padding: 1em 0;
+ border: 1px solid #000;
+ border-top: none;
+ background-color: #F9F9F9; 
+ max-height: 600px;
+ overflow-y: auto;
+ overflow-x: hidden;
+ z-index: 100;
 }
