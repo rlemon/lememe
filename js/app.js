@@ -208,6 +208,8 @@ function toggle_meme_list(e) {
     var tmp = this.title;
     this.title = $(this).data('title-alt');
     $(this).data('title-alt', tmp);
+    e.preventDefault();
+    return false;
 }
 
 function generateList() {
@@ -331,7 +333,15 @@ function register_events() {
 		e.preventDefault();
 		return false;
 	});
-	
+	$(document).on('click', function(e) {
+		if( $('.meme-list-container').is(':visible') ) {
+			$('#btn-meme-list').trigger('click');
+		}
+	});
+	$('.meme-list-container').on('click', function(e) {
+		e.preventDefault();
+		return false;
+	});
 }
 
 function init() {
