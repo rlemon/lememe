@@ -97,7 +97,7 @@ function draw() {
 			maxw = 480,
 			height = img.height,
 			width = img.width;
-		console.log('resizing to ', width + ' * ' height);
+		console.log('resizing to ', width + ' * ' + height);
 		while (height > maxh || width > maxw) {
 			--height;
 			--width;
