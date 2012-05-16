@@ -143,6 +143,9 @@ function persist_settings() {
 }
 
 function swap_active_meme(e) {
+	if( $(this).is('.active') ) {
+		return;
+	}
 	$('#btn-meme-list').trigger('click');
 	$('#spinner-loading').show();
 	meme_list_container.find('li.active').removeClass('active');
