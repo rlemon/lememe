@@ -338,10 +338,11 @@ function register_events() {
 			$('#btn-meme-list').trigger('click');
 		}
 	});
+	
 	$('.meme-list-container').on('click', function(e) {
-		e.preventDefault();
 		return false;
 	});
+	
 }
 
 function init() {
@@ -357,7 +358,7 @@ function init() {
 		outline_size.val(data.outline_size);
 		top_input.val(data.top_input);
 		bottom_input.val(data.bottom_input);
-		
+		protip = data.protip;
 		var active_meme_item = meme_list_container.filter(function(){
 			return $(this.children[0]).data('img') === active_meme;
 		});
@@ -367,12 +368,11 @@ function init() {
 		font_label.text(active_font_item.children().text());
 		$(meme_list_container.children('li')).add(font_list).removeClass("active");
 		$(active_meme_item).add(active_font_item).addClass("active");
-		
 		is_persistent.attr("checked", "checked");
+		
 	} else {
 		active_meme = meme_list_container.find('li.active > a').data('img');
 	}
-
 
 	img_is_loaded = false;
 	img.src = PATH + active_meme;
