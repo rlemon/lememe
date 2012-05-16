@@ -135,13 +135,13 @@ function persist_settings() {
 }
 
 function swap_active_meme(e) {
+	$('#btn-meme-list').trigger('click');
 	$('#spinner-loading').show();
 	meme_list_container.find('li.active').removeClass('active');
 	$(this).addClass('active');
 	active_meme = $(this).children('a').data('img');
 	img_is_loaded = false;
 	img.src = PATH + active_meme;
-	$('#btn-meme-list').trigger('click');
 	draw();
 	if(e) e.preventDefault();
 }
@@ -191,7 +191,7 @@ function generate_meme(e) {
 
 function toggle_meme_list(e) {
     $(this).children('i').toggle();
-    $('.meme-list-container').slideToggle();
+    $('.meme-list-container').slideToggle(100);
     var tmp = this.title;
     this.title = $(this).data('title-alt');
     $(this).data('title-alt', tmp);
