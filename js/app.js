@@ -160,18 +160,18 @@ function swap_active_font(e) {
 
 function image_uploaded(data) {
 	Notifier.success('Your image has been uploaded successfully.', 'Complete!');
-	spinner.hide();
+	//spinner.hide();
 	userlink.val(data['upload']['links']['original']);
 	userlink[0].select();
 	userlink[0].focus();
 }
 function image_upload_failed() {
 	Notifier.error('Could not reach imgur service. Enter a new API Key or wait a few minutes and try again.', 'Error!');
-	spinner.hide();
+	//spinner.hide();
 }
 
 function generate_meme(e) {
-	spinner.show();
+	//spinner.show();
 	var dataURL = canvas.toDataURL("image/png").split(',')[1];
 	$.ajax({
 		url: 'http://api.imgur.com/2/upload.json',
