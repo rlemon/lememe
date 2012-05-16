@@ -94,33 +94,31 @@ function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
 		var maxh = 640,
-			maxw = 480;
-        var ratio = 1;
+			maxw = 480,
+			height = img.height,
+			width = img.width;
 
-        if(img.width > maxw) {
-            ratio = maxw / img.width;
-        } else if(img.height > maxh) {
-            ratio = maxh / img.height;
+		while (height > maxh || width > maxw) {
+			--height;
+			--width;
 		}
-		img.height = img.height * ratio;
-		img.width = img.width * ratio;
-		canvas.height = img.height;
-		canvas.width = img.width;
+		canvas.height = img.height = height;
+		canvas.width = img.width = width;
 		ctx.save();
-		ctx.clearRect(0, 0, img.height, img.width);
-		ctx.drawImage(img, 0, 0, img.width, img.height);
+		ctx.clearRect(0, 0, height, width);
+		ctx.drawImage(img, 0, 0, width, height);
 
 		ctx.font = "bold " + font_size.val() + "px " + active_font;
 		ctx.textAlign = "center";
 		ctx.fillStyle = color1.val();
-		ctx.fillText(top_input.val(), img.width / 2, parseFloat(font_size.val()), img.width);
-		ctx.fillText(bottom_input.val(), img.width / 2, img.height - 10, img.width);
+		ctx.fillText(top_input.val(), width / 2, parseFloat(font_size.val()), width);
+		ctx.fillText(bottom_input.val(), width / 2, height - 10, width);
 
 		if( outline_size.val() > 0 ) {
 			ctx.strokeStyle = color2.val();
 			ctx.lineWidth = outline_size.val();
-			ctx.strokeText(top_input.val(), img.width / 2, parseFloat(font_size.val()), img.width);
-			ctx.strokeText(bottom_input.val(), img.width / 2, img.height - 10, img.width);
+			ctx.strokeText(top_input.val(), width / 2, parseFloat(font_size.val()), width);
+			ctx.strokeText(bottom_input.val(), width / 2, height - 10, width);
 		}
 
 		ctx.restore();
