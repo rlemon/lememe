@@ -57,3 +57,11 @@ input[data-slider] {
  overflow-x: hidden;
  z-index: 100;
 }
+.image-container {
+ position: relative;
+}
+.image-container > img {
+	position: absolute;
+	top: 116px;
+	left: 176px;
+}
