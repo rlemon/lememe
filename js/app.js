@@ -93,13 +93,17 @@ var meme_data = {
 function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
-		var ratio = img.height / img.width;
-
-		if(img.width >= 480 && ratio <= 1){
-		img.width = 480;
+		var ratio = img.height / img.width,
+		low = 375, high = 500;
+		if( img.width > img.height ) {
+			high = 375;
+			low = 500;
+		}
+		if(img.width >= low && ratio <= 1){
+		img.width = low;
 		img.height = img.width * ratio; 
-		} else if(img.height >= 480){
-		img.height = 480;
+		} else if(img.height >= high){
+		img.height = high;
 		img.width = img.height / ratio;
 		}
 		canvas.height = img.height;
