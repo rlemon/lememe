@@ -108,7 +108,7 @@ function draw() {
 				img.height = Math.round(img.height * (maxw / img.width));
 				img.width = maxw;
 			}
-		}​
+		}
 		
 		canvas.height = img.height;
 		canvas.width = img.width;
