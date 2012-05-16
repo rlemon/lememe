@@ -105,7 +105,7 @@ function draw() {
 		img.height = img.height * ratio;
 		img.width = img.width * ratio;
 		canvas.height = img.height;
-		canvas.width = img.width * ratio;
+		canvas.width = img.width;
 		ctx.save();
 		ctx.clearRect(0, 0, img.height, img.width);
 		ctx.drawImage(img, 0, 0, img.width, img.height);
