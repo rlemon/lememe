@@ -93,13 +93,6 @@ var meme_data = {
 function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
-		if( img.width > 500 && img.height > 625 ) {
-			Notifier.error('Too Large!', 'Max image size is 500px wide by 625px tall');
-			img_is_loaded = false;
-			img.src = PATH + active_meme;
-			draw();
-			return;
-		}
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.save();
@@ -315,7 +308,9 @@ function register_events() {
 			var reader = new FileReader();
 			reader.readAsDataURL( file );
 			reader.onload = function ( ev ) {
+				img_is_loaded = false;
 				img.src = ev.target.result;
+				draw();
 			};
 		} else {
 			Notifier.error('Too many files!', 'you may only drop one image at a time to the page');
