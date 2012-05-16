@@ -93,6 +93,23 @@ var meme_data = {
 function draw() {
 	if( img_is_loaded ) {
 		$('#spinner-loading').hide();
+		var maxh = 640,
+			maxw = 500;
+		var ratio = maxh / maxw;
+		if (img.height / img.width > ratio) {
+			// height is the problem
+			if (img.height > maxh) {
+				img.width = Math.round(img.width * (maxh / img.height));
+				img.height = maxh;
+			}
+		} else {
+			// width is the problem
+			if (img.width > maxh) {
+				img.height = Math.round(img.height * (maxw / img.width));
+				img.width = maxw;
+			}
+		}​
+		
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.save();
