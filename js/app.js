@@ -1,75 +1,4 @@
-var meme_data = {
-	toons: [
-		{
-		link: 'toons/all_of_the_things.jpg',
-		title: 'All Of The Things'},
-	{
-		link: 'toons/rainbow_star_pony.jpg',
-		title: 'Rainbow Star Pony'},
-	{
-		link: 'toons/yuno_guy.jpg',
-		title: 'Y U NO Guy'},
-	{
-		link: 'toons/not_sure_if.jpg',
-		title: 'Not Sure If'},
-	{
-		link: 'toons/my_little_pony_1.jpg',
-		title: 'My Little Pony 1'},
-	{
-		link: 'toons/trollface.jpg',
-		title: 'Trollface'},
-	{
-		link: 'toons/forever_alone.jpg',
-		title: 'Forever Alone'}
-			],
-	people: [
-		{
-		link: 'people/ridiculously_photogenic_guy.jpg',
-		title: 'Ridiculously Photogenic Guy'},
-	{
-		link: 'people/baby_godfather.jpg',
-		title: 'Baby Godfather'},
-	{
-		link: 'people/rick_rolled.jpg',
-		title: 'Rick Rolled'},
-	{
-		link: 'people/helicopter_kid.jpg',
-		title: 'Helicopter Kid'},
-	{
-		link: 'people/loktarian.jpg',
-		title: 'Loktarian'},
-	{
-		link: 'people/too_tanned_guy.jpg',
-		title: 'Too Tanned Guy'},
-	{
-		link: 'people/scumbag_steve.jpg',
-		title: 'Scumbag Steve'},
-	{
-		link: 'people/hipster_barista.jpg',
-		title: 'Hipster Barista'},
-	{
-		link: 'people/good_guy_greg.jpg',
-		title: 'Good Guy Gre'},
-	{
-		link: 'people/the_most_interesting_man_in_the_world.jpg',
-		title: 'The Most Interesting Man In The World'},
-	{
-		link: 'people/success_kid.jpg',
-		title: 'Success Kid'}
-			],
-	animals: [
-		{
-		link: 'animals/philosoraptor.jpg',
-		title: 'Philosoraptor'},
-	{
-		link: 'animals/socially_awkward_penguin.jpg',
-		title: 'Socially Awkward Penguin'},
-	{
-		link: 'animals/conversational_penguins.jpg',
-		title: 'Conversational Penguins'}
-			]
-	},
-	font_list = $('#meme-fonts > li'),
+var font_list = $('#meme-fonts > li'),
 	active_meme, active_font = font_list.filter('.active')[0].children[0].getAttribute('data-font'),
 	color1 = $('#color1'),
 	color2 = $('#color2'),
@@ -77,6 +6,8 @@ var meme_data = {
 	canvas = $('#cvs')[0],
 	top_input = $('#text-top'),
 	bottom_input = $('#text-bottom'),
+	padding_x = $('#padding-x'),
+	padding_y = $('#padding-y'),
 	meme_list_container = $('#meme-list-container'),
 	generate = $('#generate'),
 	userlink = $('#img-link'),
@@ -96,28 +27,34 @@ function draw() {
 		var maxh = 640,
 			maxw = 480,
 			height = img.height,
-			width = img.width;
+			width = img.width,
+			top = top_input.val(),
+			bottom = bottom_input.val();
 		while (height > maxh || width > maxw) {
 			--height;
 			--width;
+		}
+		for( var i = 0; i < parseFloat(padding_x.val()); i++ ) {
+			top = " " + top + " ";
+			bottom = " " + bottom + " ";
 		}
 		canvas.height = height;
 		canvas.width = width;
 		ctx.save();
 		ctx.clearRect(0, 0, height, width);
 		ctx.drawImage(img, 0, 0, width, height);
-
+		
 		ctx.font = "bold " + font_size.val() + "px " + active_font;
 		ctx.textAlign = "center";
 		ctx.fillStyle = color1.val();
-		ctx.fillText(top_input.val(), width / 2, parseFloat(font_size.val()), width);
-		ctx.fillText(bottom_input.val(), width / 2, height - 10, width);
+		ctx.fillText(top_input.val(), width / 2, parseFloat(font_size.val()+padding_y.val()), width);
+		ctx.fillText(bottom_input.val(), width / 2, height - 10-padding_y.val(), width);
 
 		if( outline_size.val() > 0 ) {
 			ctx.strokeStyle = color2.val();
 			ctx.lineWidth = outline_size.val();
-			ctx.strokeText(top_input.val(), width / 2, parseFloat(font_size.val()), width);
-			ctx.strokeText(bottom_input.val(), width / 2, height - 10, width);
+			ctx.strokeText(top_input.val(), width / 2, parseFloat(font_size.val()+padding_y.val()), width);
+			ctx.strokeText(bottom_input.val(), width / 2, height - 10-padding_y.val(), width);
 		}
 
 		ctx.restore();
@@ -210,41 +147,6 @@ function toggle_meme_list(e) {
     $(this).data('title-alt', tmp);
     e.preventDefault();
     return false;
-}
-
-function generateList() {
-	var first = true;
-    for (var cat in meme_data) {
-        var list = [
-            {
-            'tagName': 'ul',
-            'className': 'nav nav-list span3',
-            'childNodes': [
-                {
-                'tagName': 'li',
-                'className': 'nav-header',
-                'textContent': cat.toTitleCase()}
-            ]}
-        ];
-        for (var item in meme_data[cat]) {
-			var obj = {
-                'tagName': 'li',
-                'childNodes': [
-                    {
-                    'tagName': 'a',
-                    'textContent': meme_data[cat][item].title,
-                    'href': '#',
-                    'data-img': meme_data[cat][item].link}
-                ]
-            };
-            if( first ) {
-				obj['className'] = 'active';
-			}
-            list[0].childNodes.push(obj);
-            first = false;
-        }
-        meme_list_container.append(FragBuilder(list));
-    }
 }
 
 function filter_list(text) {
@@ -346,7 +248,6 @@ function register_events() {
 }
 
 function init() {
-	//generateList();
 	register_events();
 	var data = false;//get_data();
 	if (data) {
