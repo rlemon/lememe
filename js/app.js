@@ -346,7 +346,7 @@ function register_events() {
 }
 
 function init() {
-	generateList();
+	//generateList();
 	register_events();
 	var data = false;//get_data();
 	if (data) {

@@ -1,0 +1,52 @@
+find . -name *.jpg -exec echo "'{}'," > export.txt \;
+
+
+$array = array(
+'./toons/me_gusta.jpg',
+'./toons/all_of_the_things.jpg',
+'./toons/rainbow_star_pony.jpg',
+'./toons/yuno_guy.jpg',
+'./toons/not_sure_if.jpg',
+'./toons/my_little_pony_1.jpg',
+'./toons/okay.jpg',
+'./toons/trollface.jpg',
+'./toons/forever_alone.jpg',
+'./people/ridiculously_photogenic_guy.jpg',
+'./people/baby_godfather.jpg',
+'./people/not_bad_obamas.jpg',
+'./people/rick_rolled.jpg',
+'./people/bitch_please_colour.jpg',
+'./people/power_ranger_girls.jpg',
+'./people/helicopter_kid.jpg',
+'./people/loktarian.jpg',
+'./people/too_tanned_guy.jpg',
+'./people/scumbag_steve.jpg',
+'./people/hipster_barista.jpg',
+'./people/good_guy_greg.jpg',
+'./people/the_most_interesting_man_in_the_world.jpg',
+'./people/success_kid.jpg',
+'./animals/philosoraptor.jpg',
+'./animals/ice_creme_unicorn.jpg',
+'./animals/zion_go_seek.jpg',
+'./animals/projectile_squirt.jpg',
+'./animals/socially_awkward_penguin.jpg',
+'./animals/science_cat.jpg',
+'./animals/conversational_penguins.jpg',
+    );
+    
+    $cats = array();
+    
+    foreach( $array as $item ) {
+        $link = ltrim($item, './');
+        $cat = explode('/', $link);
+        if( !in_array($cat[0], $cats) ) {
+            if( count($cats) > 0 ) {
+                echo "</ul>";
+            }
+            array_push($cats, $cat[0]);
+            echo "<ul class='nav nav-list span3'><li class='nav-header'>".ucwords($cat[0])."</li>";
+        }
+        $title = ucwords(str_replace('_', ' ', rtrim(substr($link, strrpos($link, '/')+1), '.jpg')));
+     echo "<li><a href='#' data-img='".$link."'>".$title."</a></li>\n";   
+    }
+    echo "</ul>";
