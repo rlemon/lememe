@@ -47,14 +47,14 @@ function draw() {
 		ctx.font = "bold " + font_size.val() + "px " + active_font;
 		ctx.textAlign = "center";
 		ctx.fillStyle = color1.val();
-		ctx.fillText(top_input.val(), width / 2, parseFloat(font_size.val()+padding_y.val()), width);
-		ctx.fillText(bottom_input.val(), width / 2, height - 10-padding_y.val(), width);
+		ctx.fillText(top_input.val(), width / 2, parseFloat(font_size.val())+parseFloat(padding_y.val()), width);
+		ctx.fillText(bottom_input.val(), width / 2, height - 10 - parseFloat(padding_y.val()), width);
 
 		if( outline_size.val() > 0 ) {
 			ctx.strokeStyle = color2.val();
 			ctx.lineWidth = outline_size.val();
-			ctx.strokeText(top_input.val(), width / 2, parseFloat(font_size.val()+padding_y.val()), width);
-			ctx.strokeText(bottom_input.val(), width / 2, height - 10-padding_y.val(), width);
+			ctx.strokeText(top_input.val(), width / 2, parseFloat(font_size.val())+parseFloat(padding_y.val()), width);
+			ctx.strokeText(bottom_input.val(), width / 2, height - 10 - parseFloat(padding_y.val()), width);
 		}
 
 		ctx.restore();
