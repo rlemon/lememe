@@ -183,8 +183,7 @@ function register_events() {
 			draw();
 		}
 	});
-	font_size.on('slide', draw);
-	outline_size.on('slide', draw);
+	$('.slider').on('slide', draw);
 	/* preview font faces */
 	font_list.each(function() {
 		var link = $(this).children('a');
