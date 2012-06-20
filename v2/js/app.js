@@ -30,7 +30,7 @@ function fragmentText(text, maxWidth) {
 		return [text];
 	}
 	while (words.length > 0) {
-		if (ctx.measureText(line + words[0]).width < maxWidth) {
+		if (ctx.measureText(line + words[0]).width < maxWidth) { /* ok here if the word[0] itself is longer than the maxWidth crashes the page... I should probably handle that.... */
 			line += words.shift() + " ";
 		} else {
 			lines.push(line);
@@ -40,7 +40,6 @@ function fragmentText(text, maxWidth) {
 			lines.push(line);
 		}
 	}
-	console.log( ctx.measureText(text).width , lines );
 	return lines;
 }
 
