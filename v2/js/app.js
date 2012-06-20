@@ -26,7 +26,7 @@ function fragmentText(text, maxWidth) {
 	var words = text.split(' '),
 		lines = [],
 		line = "";
-	if (ctx.measureText(text).width < maxWidth) {
+	if (text.length === 0 /* this should fix the crashing when you clear the input */ || ctx.measureText(text).width < maxWidth) {
 		return [text];
 	}
 	while (words.length > 0) {
