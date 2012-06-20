@@ -1,7 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Chau+Philomene+One|Russo+One|Days+One|Gorditas:700|Bree+Serif|Krona+One|Averia+Gruesa+Libre|VT323|Bowlby+One+SC|Open+Sans+Condensed:700);
+@import url(http://fonts.googleapis.com/css?family=Cantata+One|Fredericka+the+Great|Acme|Spicy+Rice|Ubuntu|Concert+One|Swanky+and+Moo+Moo|Cagliostro|Fredoka+One|Graduate|Chango|Quantico|Berkshire+Swash|Bangers|Play|Doppio+One|Bowlby+One|Francois+One);
 
 body {
-	padding-top: 48px;
+	padding-top: 56px;
 	padding-bottom: 10px;    
 }
 
@@ -42,25 +42,31 @@ input[data-slider] {
 }
 
 .meme-list-wrapper {
- position: relative;  
+	position: relative;  
 }
 .meme-list-container {
- position: absolute;
- padding: 1em 0;
- border: 1px solid #000;
- border-top: none;
- background-color: #F9F9F9; 
- max-height: 600px;
- overflow-y: auto;
- overflow-x: hidden;
- z-index: 100;
+	position: absolute;
+	padding: 1em 0;
+	border: 1px solid #000;
+	border-top: none;
+	background-color: #F9F9F9; 
+	max-height: 600px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	z-index: 100;
 }
 .image-container {
- position: relative;
- min-height: 360px;
+	position: relative;
+	min-height: 360px;
 }
 .image-container > img {
 	position: absolute;
 	top: 116px;
 	left: 176px;
+}
+
+.brand > span {
+	color: green;
+	font-size:x-small;
+	vertical-align:bottom;
 }

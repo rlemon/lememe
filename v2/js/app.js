@@ -228,7 +228,7 @@ function register_events() {
 	$('input[data-slider]').on('slide', draw); /* preview font faces */
 	font_list.each(function() {
 		var link = $(this).children('a');
-		link.css('font-family', link.attr('data-font'));
+		link.css('font-family', link.data('font'));
 	});
 
 	$('#btn-clear-filter').on('click', function() {
