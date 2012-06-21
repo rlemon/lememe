@@ -89,7 +89,7 @@ function draw() {
 			ctx.fillText(line, width / 2, pad_y_val + ((i + 1) * font_size_val));
 		});
 		bottom_lines.forEach(function(line, i) {
-			ctx.fillText(line, width / 2, height - (pad_y_val + ((i + 1) * font_size_val)));
+			ctx.fillText(line, width / 2, height - (pad_y_val + (i * font_size_val)));
 		});
 
 		if (outline_size.val() > 0) {
@@ -100,7 +100,7 @@ function draw() {
 				ctx.strokeText(line, width / 2, pad_y_val + ((i + 1) * font_size_val));
 			});
 			bottom_lines.forEach(function(line, i) {
-				ctx.strokeText(line, width / 2, height - (pad_y_val + ((i + 1) * font_size_val)));
+				ctx.strokeText(line, width / 2, height - (pad_y_val + (i * font_size_val)));
 			});
 
 		}
