@@ -200,6 +200,8 @@
 								<input data-slider="#padding-x-slider" data-max="64" data-min="0" data-step="1" value="4" class="span1" id="padding-x">
 								<span class="add-on">px</span>
 							</div>
+						</div>
+						<div class="controls">
 							<div class="input-prepend input-append">
 								 Y
 								<div class="add-on slider addon-slider" id="padding-y-slider">
@@ -219,7 +221,9 @@
 							<input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
 						</div>
 					</div>
-					<label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
+					<div hidden><!-- cheapy hide this until I fix it... iirc my js references it so I cannot just comment it out -->
+						<label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
+					</div>
 					<label class="checkbox"><input type="checkbox" id="toggle-custom-api"> Custom API Key <small class="info-popover" title="Imgur API Keys" data-content="The anonymous API Key allows you to upload 500 credits (approximately 50 images) per hour, and is free for anyone to get. For more information please visit http://imgur.com/register/api_anon">?</small></label>
 					<div class="control-group" id="api-key-container" hidden>
 						<div class="controls">
