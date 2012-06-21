@@ -3,26 +3,26 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>LeMEME - Online Meme Generator - Free Trolling for all!</title>
-<meta name="description" content="Online Meme generator. Funny images and pictures. Create your own meme bases. Impress  your friends and troll your neighbours with this simple online meme generation tool. Custom text, fonts, images, colours, etc. All images hosted on imgur" />
-<meta name="keywords" content="meme,memes,meme base,meme generator,internet meme,rage face,internet memes,meme faces,philosoraptor,socially awkward penguin,rage guy,funny memes,courage wolf,insanity wolf,advice dog,y u no meme,y u no man,foul bachelor frog,socialite life,depression dog,paranoid parrot,funny,joke,funny pictures,joke pictures,troll,trolling" />
-<meta name="author" content="Robert Lemon - rob.lemon@gmail.com" />
-<meta name="robots" content="index, follow" />
-<meta name="copyright" content="Robert Lemon 2012" />
+<meta name="description" content="Online Meme generator. Funny images and pictures. Create your own meme bases. Impress your friends and troll your neighbours with this simple online meme generation tool. Custom text, fonts, images, colours, etc. All images hosted on imgur"/>
+<meta name="keywords" content="meme,memes,meme base,meme generator,internet meme,rage face,internet memes,meme faces,philosoraptor,socially awkward penguin,rage guy,funny memes,courage wolf,insanity wolf,advice dog,y u no meme,y u no man,foul bachelor frog,socialite life,depression dog,paranoid parrot,funny,joke,funny pictures,joke pictures,troll,trolling"/>
+<meta name="author" content="Robert Lemon - rob.lemon@gmail.com"/>
+<meta name="robots" content="index, follow"/>
+<meta name="copyright" content="Robert Lemon 2012"/>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/minicolors.css">
 <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a href="http://rlemon.github.com/lememe/" class="brand" title="LeMEME - Online Meme Generator - Free Trolling for all!">LeMEME <span>Alpha2</span></a>
-            <form class="nosubmit-form navbar-form">
-            <ul class="nav">
-                <li class="offset2">
-                    <button type="button" class="btn btn-info" id="btn-meme-list" title="Show Meme list" data-title-alt="Hide Meme list">MEME Image <i class="icon-chevron-up icon-white" style="display: none;"></i><i class="icon-chevron-down icon-white"></i></button>
-                </li>
-            </ul>
+	<div class="navbar-inner">
+		<div class="container">
+			<a href="http://rlemon.github.com/lememe/" class="brand" title="LeMEME - Online Meme Generator - Free Trolling for all!">LeMEME <span>Alpha2</span></a>
+			<form class="nosubmit-form navbar-form">
+				<ul class="nav">
+					<li class="offset2">
+					<button type="button" class="btn btn-info" id="btn-meme-list" title="Show Meme list" data-title-alt="Hide Meme list">MEME Image <i class="icon-chevron-up icon-white" style="display: none;"></i><i class="icon-chevron-down icon-white"></i></button>
+					</li>
+				</ul>
 			</form>
 			<div class="meme-list-wrapper">
 				<div class="row offset1 meme-list-container" hidden>
@@ -30,86 +30,113 @@
 						<div class="control-group">
 							<div class="controls">
 								<div class="offset3 input-append">
-										<input type="text" style="display: inline-block; margin: 0 -4px -5px 0;" class="span3" id="meme-filter" placeholder="Filter List.." />
-										<button type="button" id="btn-clear-filter" class="btn">Clear</button>
+									<input type="text" style="display: inline-block; margin: 0 -4px -5px 0;" class="span3" id="meme-filter" placeholder="Filter List.."/>
+									<button type="button" id="btn-clear-filter" class="btn">Clear</button>
 								</div>
 							</div>
 						</div>
 					</form>
 					<div id="meme-list-container" class="span10">
-						<ul class='nav nav-list span3'><li class='nav-header'>Toons</li><li class="active"><a href='#' data-img='toons/me_gusta.jpg'>Me Gusta</a></li>
-						<li><a href='#' data-img='toons/all_of_the_things.jpg'>All Of The Things</a></li>
-						<li><a href='#' data-img='toons/rainbow_star_pony.jpg'>Rainbow Star Pony</a></li>
-						<li><a href='#' data-img='toons/yuno_guy.jpg'>Yuno Guy</a></li>
-						<li><a href='#' data-img='toons/not_sure_if.jpg'>Not Sure If</a></li>
-						<li><a href='#' data-img='toons/my_little_pony_1.jpg'>My Little Pony 1</a></li>
-						<li><a href='#' data-img='toons/okay.jpg'>Okay</a></li>
-						<li><a href='#' data-img='toons/trollface.jpg'>Trollface</a></li>
-						<li><a href='#' data-img='toons/forever_alone.jpg'>Forever Alone</a></li>
-						</ul><ul class='nav nav-list span3'><li class='nav-header'>People</li><li><a href='#' data-img='people/ridiculously_photogenic_guy.jpg'>Ridiculously Photogenic Guy</a></li>
-						<li><a href='#' data-img='people/baby_godfather.jpg'>Baby Godfather</a></li>
-						<li><a href='#' data-img='people/not_bad_obamas.jpg'>Not Bad Obamas</a></li>
-						<li><a href='#' data-img='people/rick_rolled.jpg'>Rick Rolled</a></li>
-						<li><a href='#' data-img='people/bitch_please_colour.jpg'>Bitch Please Colour</a></li>
-						<li><a href='#' data-img='people/power_ranger_girls.jpg'>Power Ranger Girls</a></li>
-						<li><a href='#' data-img='people/helicopter_kid.jpg'>Helicopter Kid</a></li>
-						<li><a href='#' data-img='people/loktarian.jpg'>Loktarian</a></li>
-						<li><a href='#' data-img='people/too_tanned_guy.jpg'>Too Tanned Guy</a></li>
-						<li><a href='#' data-img='people/scumbag_steve.jpg'>Scumbag Steve</a></li>
-						<li><a href='#' data-img='people/hipster_barista.jpg'>Hipster Barista</a></li>
-						<li><a href='#' data-img='people/good_guy_greg.jpg'>Good Guy Greg</a></li>
-						<li><a href='#' data-img='people/the_most_interesting_man_in_the_world.jpg'>The Most Interesting Man In The World</a></li>
-						<li><a href='#' data-img='people/success_kid.jpg'>Success Kid</a></li>
-						</ul><ul class='nav nav-list span3'><li class='nav-header'>Animals</li><li><a href='#' data-img='animals/philosoraptor.jpg'>Philosoraptor</a></li>
-						<li><a href='#' data-img='animals/ice_creme_unicorn.jpg'>Ice Creme Unicorn</a></li>
-						<li><a href='#' data-img='animals/zion_go_seek.jpg'>Zion Go Seek</a></li>
-						<li><a href='#' data-img='animals/projectile_squirt.jpg'>Projectile Squirt</a></li>
-						<li><a href='#' data-img='animals/socially_awkward_penguin.jpg'>Socially Awkward Penguin</a></li>
-						<li><a href='#' data-img='animals/science_cat.jpg'>Science Cat</a></li>
-						<li><a href='#' data-img='animals/conversational_penguins.jpg'>Conversational Penguins</a></li>
+						<ul class='nav nav-list span3'>
+							<li class='nav-header'>Toons</li>
+							<li><a href='#' data-img='toons/philosoraptor.jpg'>Philosoraptor</a></li>
+							<li><a href='#' data-img='toons/me_gusta.jpg'>Me Gusta</a></li>
+							<li><a href='#' data-img='toons/all_of_the_things.jpg'>All Of The Things</a></li>
+							<li><a href='#' data-img='toons/rage_fu.jpg'>Rage Fu</a></li>
+							<li><a href='#' data-img='toons/rainbow_star_pony.jpg'>Rainbow Star Pony</a></li>
+							<li><a href='#' data-img='toons/socially_awkward_penguin.jpg'>Socially Awkward Penguin</a></li>
+							<li><a href='#' data-img='toons/yuno_guy.jpg'>Yuno Guy</a></li>
+							<li><a href='#' data-img='toons/not_sure_if.jpg'>Not Sure If</a></li>
+							<li><a href='#' data-img='toons/whyyyyy.jpg'>Whyyyyy</a></li>
+							<li><a href='#' data-img='toons/my_little_pony_1.jpg'>My Little Pony 1</a></li>
+							<li><a href='#' data-img='toons/okay.jpg'>Okay</a></li>
+							<li><a href='#' data-img='toons/trollface.jpg'>Trollface</a></li>
+							<li><a href='#' data-img='toons/i_hate.jpg'>I Hate</a></li>
+							<li><a href='#' data-img='toons/great_scott.jpg'>Great Scott</a></li>
+							<li><a href='#' data-img='toons/forever_alone.jpg'>Forever Alone</a></li>
+							<li><a href='#' data-img='toons/pedo_bear.jpg'>Pedo Bear</a></li>
+						</ul>
+						<ul class='nav nav-list span3'>
+							<li class='nav-header'>People</li>
+							<li><a href='#' data-img='people/rlemon_smash.jpg'>Rlemon Smash</a></li>
+							<li><a href='#' data-img='people/condescending_wonka.jpg'>Condescending Wonka</a></li>
+							<li><a href='#' data-img='people/ridiculously_photogenic_guy.jpg'>Ridiculously Photogenic Guy</a></li>
+							<li><a href='#' data-img='people/when_i_was_a_kid.jpg'>When I Was A Kid</a></li>
+							<li><a href='#' data-img='people/baby_godfather.jpg'>Baby Godfather</a></li>
+							<li><a href='#' data-img='people/fuck_you_linus.jpg'>Fuck You Linus</a></li>
+							<li><a href='#' data-img='people/not_bad_obamas.jpg'>Not Bad Obamas</a></li>
+							<li><a href='#' data-img='people/geek_reader.jpg'>Geek Reader</a></li>
+							<li><a href='#' data-img='people/first_world_problems.jpg'>First World Problems</a></li>
+							<li><a href='#' data-img='people/rick_rolled.jpg'>Rick Rolled</a></li>
+							<li><a href='#' data-img='people/bitch_please_colour.jpg'>Bitch Please Colour</a></li>
+							<li><a href='#' data-img='people/power_ranger_girls.jpg'>Power Ranger Girls</a></li>
+							<li><a href='#' data-img='people/you_dont_say.jpg'>You Dont Say</a></li>
+							<li><a href='#' data-img='people/helicopter_kid.jpg'>Helicopter Kid</a></li>
+							<li><a href='#' data-img='people/yo_dawg.jpg'>Yo Daw</a></li>
+							<li><a href='#' data-img='people/loktarian.jpg'>Loktarian</a></li>
+							<li><a href='#' data-img='people/one_does_not_simply.jpg'>One Does Not Simply</a></li>
+							<li><a href='#' data-img='people/too_tanned_guy.jpg'>Too Tanned Guy</a></li>
+							<li><a href='#' data-img='people/scumbag_steve.jpg'>Scumbag Steve</a></li>
+							<li><a href='#' data-img='people/pissed_off_nun.jpg'>Pissed Off Nun</a></li>
+							<li><a href='#' data-img='people/spirit_fingers.jpg'>Spirit Fingers</a></li>
+							<li><a href='#' data-img='people/hipster_barista.jpg'>Hipster Barista</a></li>
+							<li><a href='#' data-img='people/good_guy_greg.jpg'>Good Guy Gre</a></li>
+							<li><a href='#' data-img='people/chuck_norris.jpg'>Chuck Norris</a></li>
+							<li><a href='#' data-img='people/bear_grylls.jpg'>Bear Grylls</a></li>
+							<li><a href='#' data-img='people/the_most_interesting_man_in_the_world.jpg'>The Most Interesting Man In The World</a></li>
+							<li><a href='#' data-img='people/success_kid.jpg'>Success Kid</a></li>
+							<li><a href='#' data-img='people/my_name_is_earl.jpg'>My Name Is Earl</a></li>
+						</ul>
+						<ul class='nav nav-list span3'>
+							<li class='nav-header'>Animals</li>
+							<li><a href='#' data-img='animals/ice_creme_unicorn.jpg'>Ice Creme Unicorn</a></li>
+							<li><a href='#' data-img='animals/zion_go_seek.jpg'>Zion Go Seek</a></li>
+							<li><a href='#' data-img='animals/projectile_squirt.jpg'>Projectile Squirt</a></li>
+							<li><a href='#' data-img='animals/science_cat.jpg'>Science Cat</a></li>
+							<li><a href='#' data-img='animals/conversational_penguins.jpg'>Conversational Penguins</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
-
-
 <div class="container">
-    <div class="row">
-        <div class="span6">
-            <div class="row image-container">
-                <img src="images/285.gif" id="spinner-generate" style="vertical-align: middle" hidden />
-                <img src="images/291.gif" id="spinner-loading" style="vertical-align: middle" />
-                <canvas id="cvs">Get a real browser!<br /><a href="http://www.google.com/chrome">Google Chrome to the rescue!</a> </canvas>
-            </div>
-            <div class="row">
-                <input type="text" id="img-link" placeholder="Generated image url will appear here."/>
-            </div>
+	<div class="row">
+		<div class="span6">
+			<div class="row image-container">
+				<img src="images/285.gif" id="spinner-generate" style="vertical-align: middle" hidden/>
+				<img src="images/291.gif" id="spinner-loading" style="vertical-align: middle"/>
+				<canvas id="cvs">Get a real browser!<br/><a href="http://www.google.com/chrome">Google Chrome to the rescue!</a></canvas>
+			</div>
+			<div class="row">
+				<input type="text" id="img-link" placeholder="Generated image url will appear here."/>
+			</div>
 			<div class="row">
 				<div class="alert">
 					<h4 class="alert-heading">
-						Attention!
-					</h4>
-					<p>Drag and Drop images, one at a time, anywhere on the page for a custom meme image to work with!</p>
+					Attention! </h4>
+					<p>
+						Drag and Drop images, one at a time, anywhere on the page for a custom meme image to work with!
+					</p>
 				</div>
 				<div class="alert alert-info">
 					<h4 class="alert-heading">
-						Alpha2 Updates!
-					</h4>
-					<p>Line wrapping, actual X padding, UI Tweaks, Moar Images and Fonts!</p>
+					Alpha2 Updates! </h4>
+					<p>
+						Line wrapping, actual X padding, UI Tweaks, Moar Images and Fonts!
+					</p>
 				</div>
 			</div>
-        </div>
-        <div class="span6">
-            <form class="well nosubmit-form">
+		</div>
+		<div class="span6">
+			<form class="well nosubmit-form">
 				<legend>Meme Settings</legend>
-                <fieldset>
-                    <div class="control-group">
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Font <span class="caret"></span></a>
-                            <ul class="dropdown-menu" id="meme-fonts">
+				<fieldset>
+					<div class="control-group">
+						<div class="btn-group">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Font <span class="caret"></span></a>
+							<ul class="dropdown-menu" id="meme-fonts">
 								<li class="active"><a href="#" data-font="Cantata One">Catana One</a></li>
 								<li><a href="#" data-font="Fredericka the Great">Fredericka the Great</a></li>
 								<li><a href="#" data-font="Acme">Acme</a></li>
@@ -128,91 +155,96 @@
 								<li><a href="#" data-font="Doppio One">Doppio One</a></li>
 								<li><a href="#" data-font="Bowlby One">Bowlby One</a></li>
 								<li><a href="#" data-font="Francois One">Francois One</a></li>
-                            </ul><span class="label-dropdown-selection" id="label-active-font">Catana One</span>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Colours</label>
-                        <div class="controls">
-                            <input type="hidden" name="color1" id="color1" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#FFFFFF">
-                            <input type="hidden" name="color2" id="color2" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#000000">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Text Size</label>
-                        <div class="controls">
-                            <div class="input-prepend input-append">
-								&nbsp;&nbsp;
-                                <div class="add-on slider addon-slider" id="font-size-slider"></div>
-                                <input data-slider="#font-size-slider" data-max="60" data-min="10" data-step="1" value="20" class="span1" id="font-size">
-                                <span class="add-on">px</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Outline</label>
-                        <div class="controls">
-                            <div class="input-prepend input-append">
-								&nbsp;&nbsp;
-                                <div class="add-on slider addon-slider" id="outline-size-slider"></div>
-                                <input data-slider="#outline-size-slider" data-max="6" data-min="0" data-step="1" value="1" class="span1" id="outline-size">
-                                <span class="add-on">px</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Padding</label>
-                        <div class="controls">
-                            <div class="input-prepend input-append">
-								X
-                                <div class="add-on slider addon-slider" id="padding-x-slider"></div>
-                                <input data-slider="#padding-x-slider" data-max="64" data-min="0" data-step="1" value="4" class="span1" id="padding-x">
-                                <span class="add-on">px</span>
-                            </div>
-                            <div class="input-prepend input-append">
-								Y
-                                <div class="add-on slider addon-slider" id="padding-y-slider"></div>
-                                <input data-slider="#padding-y-slider" data-max="64" data-min="0" data-step="1" value="4" class="span1" id="padding-y">
-                                <span class="add-on">px</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="text" class="span5" id="text-top" placeholder="Top Line"/>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
-                        </div>
-                    </div>
-                    <label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
-                    <label class="checkbox"><input type="checkbox" id="toggle-custom-api"> Custom API Key <small class="info-popover" title="Imgur API Keys" data-content="The anonymous API Key allows you to upload 500 credits (approximately 50 images) per hour, and is free for anyone to get. For more information please visit http://imgur.com/register/api_anon">?</small></label>
-                    <div class="control-group" id="api-key-container" hidden>
-                        <div class="controls">
+							</ul>
+							<span class="label-dropdown-selection" id="label-active-font">Catana One</span>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Colours</label>
+						<div class="controls">
+							<input type="hidden" name="color1" id="color1" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#FFFFFF">
+							<input type="hidden" name="color2" id="color2" class="color-picker" size="6" maxlength="7" autocomplete="off" value="#000000">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Text Size</label>
+						<div class="controls">
+							<div class="input-prepend input-append">
+								 &nbsp;&nbsp;
+								<div class="add-on slider addon-slider" id="font-size-slider">
+								</div>
+								<input data-slider="#font-size-slider" data-max="60" data-min="10" data-step="1" value="20" class="span1" id="font-size">
+								<span class="add-on">px</span>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Outline</label>
+						<div class="controls">
+							<div class="input-prepend input-append">
+								 &nbsp;&nbsp;
+								<div class="add-on slider addon-slider" id="outline-size-slider">
+								</div>
+								<input data-slider="#outline-size-slider" data-max="6" data-min="0" data-step="1" value="1" class="span1" id="outline-size">
+								<span class="add-on">px</span>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Padding</label>
+						<div class="controls">
+							<div class="input-prepend input-append">
+								 X
+								<div class="add-on slider addon-slider" id="padding-x-slider">
+								</div>
+								<input data-slider="#padding-x-slider" data-max="64" data-min="0" data-step="1" value="4" class="span1" id="padding-x">
+								<span class="add-on">px</span>
+							</div>
+							<div class="input-prepend input-append">
+								 Y
+								<div class="add-on slider addon-slider" id="padding-y-slider">
+								</div>
+								<input data-slider="#padding-y-slider" data-max="64" data-min="0" data-step="1" value="4" class="span1" id="padding-y">
+								<span class="add-on">px</span>
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<input type="text" class="span5" id="text-top" placeholder="Top Line"/>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
+						</div>
+					</div>
+					<label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
+					<label class="checkbox"><input type="checkbox" id="toggle-custom-api"> Custom API Key <small class="info-popover" title="Imgur API Keys" data-content="The anonymous API Key allows you to upload 500 credits (approximately 50 images) per hour, and is free for anyone to get. For more information please visit http://imgur.com/register/api_anon">?</small></label>
+					<div class="control-group" id="api-key-container" hidden>
+						<div class="controls">
 							<div class="input-append">
 								<input type="text" class="span4" size="16" id="api-key" value="eef75ee1f4d14ddf5e48e67e6531f739" style="display: inline-block; margin-bottom: 0;" placeholder="imgur api key"/><button type="button" class="btn" id="reset-api-key" title="Reset API key to default value">reset</button>
 							</div>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button> 
-                        <button type="button" class="btn btn-large" id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button> 
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-    <hr class="soften">
-    <div class="row footer">
-        Developed by rlemon - <a href="https://github.com/rlemon/lememe/" title="Fork on GitHub">Fork on GitHub</a>
-        <span class="pull-right">
-            <a href="http://rlemon.github.com/lememe/about.html" title="About LeMEME">About</a>
-            <a href="http://rlemon.github.com/lememe/contact.html" title="Contact rlemon">Contact</a>
-            <a href="http://rlemon.github.com/lememe/legal.html" title="Legal mumbo jumbo">Legal</a>
-        </span>
-    </div>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button>
+						<button type="button" class="btn btn-large" id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<hr class="soften">
+	<div class="row footer">
+		 Developed by rlemon - <a href="https://github.com/rlemon/lememe/" title="Fork on GitHub">Fork on GitHub</a>
+		<span class="pull-right">
+		<a href="http://rlemon.github.com/lememe/about.html" title="About LeMEME">About</a>
+		<a href="http://rlemon.github.com/lememe/contact.html" title="Contact rlemon">Contact</a>
+		<a href="http://rlemon.github.com/lememe/legal.html" title="Legal mumbo jumbo">Legal</a>
+		</span>
+	</div>
 </div>
 <script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/util.js'></script>
@@ -222,17 +254,14 @@
 <script type="text/javascript" src="js/notifier.js"></script>
 <script type='text/javascript' src="js/app.js"></script>
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-31510292-1']);
   _gaq.push(['_trackPageview']);
-
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 </body>
 </html>
