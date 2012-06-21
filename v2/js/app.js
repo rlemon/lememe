@@ -30,7 +30,7 @@ function fragmentText(text, maxWidth) {
 		return [text];
 	}
 	while (words.length > 0) {
-		if (ctx.measureText(line + words[0]).width < maxWidth) { /* ok here if the word[0] itself is longer than the maxWidth crashes the page... I should probably handle that.... */
+		if (ctx.measureText(words[0]).width >= maxWidth /* ugly ass hack fix (at least it does not crash)... do I wrap long words? or leave them to get cut off?? */ || ctx.measureText(line + words[0]).width < maxWidth) { 
 			line += words.shift() + " ";
 		} else {
 			lines.push(line);
