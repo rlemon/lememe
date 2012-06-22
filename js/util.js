@@ -29,6 +29,6 @@ function remove_data(key) {
 	if (!window.localStorage || !window.JSON) {
 		return;
 	}
-	key = key || data_key;
+	key = key || 'lutil_generic_data_key';
 	localStorage.removeItem(key);
 }
