@@ -1,3 +1,39 @@
+<!--
+                     Tb.          Tb.                                
+                     :$$b.        $$$b.                              
+                     :$$$$b.      :$$$$b.                            
+                     :$$$$$$b     :$$$$$$b                           
+                      $$$$$$$b     $$$$$$$b                          
+                      $$$$$$$$b    :$$$$$$$b                         
+                      :$$$$$$$$b---^$$$$$$$$b                        
+                      :$$$$$$$$$b        ""^Tb                       
+                       $$$$$$$$$$b    __...__`.                      
+                       $$$$$$$$$$$b.g$$$$$$$$$pb                     
+                       $$$$$$$$$$$$$$$$$$$$$$$$$b                    
+                       $$$$$$$$$$$$$$$$$$$$$$$$$$b                   
+                       :$$$$$$$$$$$$$$$$$$$$$$$$$$;                  
+                       :$$$$$$$$$$$$$^T$$$$$$$$$$P;                  
+                       :$$$$$$$$$$$$$b  "^T$$$$P' :                  
+                       :$$$$$$$$$$$$$$b._.g$$$$$p.db                 
+                       :$$$$$$$$$$$$$$$$$$$$$$$$$$$$;                
+                       :$$$$$$$$"""^^T$$$$$$$$$$$$P^;                
+                       :$$$$$$$$       ""^^T$$$P^'  ;                
+                       :$$$$$$$$    .'       `"     ;        So you want
+                       $$$$$$$$;   /                :      / To see my  
+                       $$$$$$$$;           .----,   :        Code eh?   
+                       $$$$$$$$;         ,"          ;               
+                       $$$$$$$$$p.                   |               
+                      :$$$$$$$$$$$$p.                :               
+                      :$$$$$$$$$$$$$$$p.            .'               
+                      :$$$$$$$$$$$$$$$$$$p...___..-"                 
+                      $$$$$$$$$$$$$$$$$$$$$$$$$;                     
+   .db.               $$$$$$$$$$$$$$$$$$$$$$$$$$                     
+  d$$$$bp.            $$$$$$$$$$$$$$$$$$$$$$$$$$;                    
+ d$$$$$$$$$$pp..__..gg$$$$$$$$$$$$$$$$$$$$$$$$$$$                    
+d$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$p._            .gp. 
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$p._.ggp._.d$$$$b
+========================================================================
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,127 +49,45 @@
 <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a href="http://rlemon.github.com/lememe/" class="brand" title="LeMEME - Online Meme Generator - Free Trolling for all!">LeMEME <span>Alpha2</span></a>
-			<form class="nosubmit-form navbar-form">
-				<ul class="nav">
-					<li class="offset2">
-					<button type="button" class="btn btn-info" id="btn-meme-list" title="Show Meme list" data-title-alt="Hide Meme list">MEME Image <i class="icon-chevron-up icon-white" style="display: none;"></i><i class="icon-chevron-down icon-white"></i></button>
-					</li>
-				</ul>
-			</form>
-			<div class="meme-list-wrapper">
-				<div class="row offset1 meme-list-container" hidden>
-					<form>
-						<div class="control-group">
-							<div class="controls">
-								<div class="offset3 input-append">
-									<input type="text" style="display: inline-block; margin: 0 -4px -5px 0;" class="span3" id="meme-filter" placeholder="Filter List.."/>
-									<button type="button" id="btn-clear-filter" class="btn">Clear</button>
-								</div>
-							</div>
-						</div>
-					</form>
-					<div id="meme-list-container" class="span10">
-						<ul class='nav nav-list span3'>
-							<li class='nav-header'>Toons</li>
-							<li><a href='#' data-img='toons/philosoraptor.jpg'>Philosoraptor</a></li>
-							<li><a href='#' data-img='toons/me_gusta.jpg'>Me Gusta</a></li>
-							<li><a href='#' data-img='toons/all_of_the_things.jpg'>All Of The Things</a></li>
-							<li><a href='#' data-img='toons/rage_fu.jpg'>Rage Fu</a></li>
-							<li><a href='#' data-img='toons/rainbow_star_pony.jpg'>Rainbow Star Pony</a></li>
-							<li><a href='#' data-img='toons/socially_awkward_penguin.jpg'>Socially Awkward Penguin</a></li>
-							<li><a href='#' data-img='toons/yuno_guy.jpg'>Yuno Guy</a></li>
-							<li><a href='#' data-img='toons/not_sure_if.jpg'>Not Sure If</a></li>
-							<li><a href='#' data-img='toons/whyyyyy.jpg'>Whyyyyy</a></li>
-							<li><a href='#' data-img='toons/my_little_pony_1.jpg'>My Little Pony 1</a></li>
-							<li><a href='#' data-img='toons/okay.jpg'>Okay</a></li>
-							<li><a href='#' data-img='toons/trollface.jpg'>Trollface</a></li>
-							<li><a href='#' data-img='toons/i_hate.jpg'>I Hate</a></li>
-							<li><a href='#' data-img='toons/great_scott.jpg'>Great Scott</a></li>
-							<li><a href='#' data-img='toons/forever_alone.jpg'>Forever Alone</a></li>
-							<li><a href='#' data-img='toons/pedo_bear.jpg'>Pedo Bear</a></li>
-						</ul>
-						<ul class='nav nav-list span3'>
-							<li class='nav-header'>People</li>
-							<li class="active"><a href='#' data-img='people/rlemon_smash.jpg'>Rlemon Smash</a></li>
-							<li><a href='#' data-img='people/condescending_wonka.jpg'>Condescending Wonka</a></li>
-							<li><a href='#' data-img='people/ridiculously_photogenic_guy.jpg'>Ridiculously Photogenic Guy</a></li>
-							<li><a href='#' data-img='people/when_i_was_a_kid.jpg'>When I Was A Kid</a></li>
-							<li><a href='#' data-img='people/baby_godfather.jpg'>Baby Godfather</a></li>
-							<li><a href='#' data-img='people/fuck_you_linus.jpg'>Fuck You Linus</a></li>
-							<li><a href='#' data-img='people/not_bad_obamas.jpg'>Not Bad Obamas</a></li>
-							<li><a href='#' data-img='people/geek_reader.jpg'>Geek Reader</a></li>
-							<li><a href='#' data-img='people/first_world_problems.jpg'>First World Problems</a></li>
-							<li><a href='#' data-img='people/rick_rolled.jpg'>Rick Rolled</a></li>
-							<li><a href='#' data-img='people/skeptical_third_world_child.jpg'>Skeptical 3rd World Child</a></li>
-							<li><a href='#' data-img='people/bitch_please_colour.jpg'>Bitch Please Colour</a></li>
-							<li><a href='#' data-img='people/power_ranger_girls.jpg'>Power Ranger Girls</a></li>
-							<li><a href='#' data-img='people/you_dont_say.jpg'>You Dont Say</a></li>
-							<li><a href='#' data-img='people/helicopter_kid.jpg'>Helicopter Kid</a></li>
-							<li><a href='#' data-img='people/yo_dawg.jpg'>Yo Daw</a></li>
-							<li><a href='#' data-img='people/loktarian.jpg'>Loktarian</a></li>
-							<li><a href='#' data-img='people/one_does_not_simply.jpg'>One Does Not Simply</a></li>
-							<li><a href='#' data-img='people/too_tanned_guy.jpg'>Too Tanned Guy</a></li>
-							<li><a href='#' data-img='people/scumbag_steve.jpg'>Scumbag Steve</a></li>
-							<li><a href='#' data-img='people/pissed_off_nun.jpg'>Pissed Off Nun</a></li>
-							<li><a href='#' data-img='people/spirit_fingers.jpg'>Spirit Fingers</a></li>
-							<li><a href='#' data-img='people/hipster_barista.jpg'>Hipster Barista</a></li>
-							<li><a href='#' data-img='people/good_guy_greg.jpg'>Good Guy Gre</a></li>
-							<li><a href='#' data-img='people/chuck_norris.jpg'>Chuck Norris</a></li>
-							<li><a href='#' data-img='people/bear_grylls.jpg'>Bear Grylls</a></li>
-							<li><a href='#' data-img='people/the_most_interesting_man_in_the_world.jpg'>The Most Interesting Man In The World</a></li>
-							<li><a href='#' data-img='people/success_kid.jpg'>Success Kid</a></li>
-							<li><a href='#' data-img='people/my_name_is_earl.jpg'>My Name Is Earl</a></li>
-						</ul>
-						<ul class='nav nav-list span3'>
-							<li class='nav-header'>Animals</li>
-							<li><a href='#' data-img='animals/ice_creme_unicorn.jpg'>Ice Creme Unicorn</a></li>
-							<li><a href='#' data-img='animals/zion_go_seek.jpg'>Zion Go Seek</a></li>
-							<li><a href='#' data-img='animals/projectile_squirt.jpg'>Projectile Squirt</a></li>
-							<li><a href='#' data-img='animals/science_cat.jpg'>Science Cat</a></li>
-							<li><a href='#' data-img='animals/conversational_penguins.jpg'>Conversational Penguins</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+<div class="container">
+	<div class="row title-bar">
+		<h1 class="pull-left">LeMEME <small>Beta 1</small></h1>
+		<div class="btn-group pull-right">
+			<a href="#about" class="btn">About</a>
+			<a href="#legal" class="btn">Legal</a>
+			<a href="#contact" class="btn">Contact</a>
 		</div>
 	</div>
-</div>
-<div class="container">
 	<div class="row">
 		<div class="span6">
-			<div class="row image-container">
-				<img src="images/285.gif" id="spinner-generate" style="vertical-align: middle" hidden/>
-				<img src="images/291.gif" id="spinner-loading" style="vertical-align: middle"/>
-				<canvas id="cvs">Get a real browser!<br/><a href="http://www.google.com/chrome">Google Chrome to the rescue!</a></canvas>
+			<div class="row">
+				<canvas id="cvs">
+				<h1>Guess What?! Your browser stinks! get <a href="http://google.com/chrome">Chrome</a>.</h1>
+				</canvas>
 			</div>
 			<div class="row">
-				<input type="text" id="img-link" placeholder="Generated image url will appear here."/>
-			</div>
-			<div class="row">
-				<div class="alert">
-					<h4 class="alert-heading">
-					Attention! </h4>
-					<p>
-						Drag and Drop images, one at a time, anywhere on the page for a custom meme image to work with!
-					</p>
-				</div>
-				<div class="alert alert-info">
-					<h4 class="alert-heading">
-					Alpha2 Updates! </h4>
-					<p>
-						Line wrapping, actual X padding, UI Tweaks, Moar Images and Fonts!
-					</p>
-				</div>
+				<input type="text" class="span5" id="url" placeholder="Generated url will appear here"/>
 			</div>
 		</div>
 		<div class="span6">
-			<form class="well nosubmit-form">
-				<legend>Meme Settings</legend>
+			<form>
 				<fieldset>
+					<legend>Select an Image</legend>
+					<div class="control-group">
+						<div class="controls">
+							<select class="span5">
+								<optgroup label="toons">
+								<option>Y U NO GUY</option>
+								</optgroup>
+								<optgroup label="people">
+								<option>The most interesting man in the world</option>
+								</optgroup>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Text/Font properties</legend>
 					<div class="control-group">
 						<div class="btn-group">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Font <span class="caret"></span></a>
@@ -212,6 +166,9 @@
 							</div>
 						</div>
 					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Lines</legend>
 					<div class="control-group">
 						<div class="controls">
 							<input type="text" class="span5" id="text-top" placeholder="Top Line"/>
@@ -222,42 +179,97 @@
 							<input type="text" class="span5" id="text-bottom" placeholder="Bottom Line"/>
 						</div>
 					</div>
-					<div hidden><!-- cheapy hide this until I fix it... iirc my js references it so I cannot just comment it out -->
-						<label class="checkbox"><input type="checkbox" id="persistent-data"> Persistent Data <small class="info-popover" title="Persistent Data" data-content="Current settings and text will be retained in your browsers local storage for the next visit.">?</small></label>
-					</div>
-					<label class="checkbox"><input type="checkbox" id="toggle-custom-api"> Custom API Key <small class="info-popover" title="Imgur API Keys" data-content="The anonymous API Key allows you to upload 500 credits (approximately 50 images) per hour, and is free for anyone to get. For more information please visit http://imgur.com/register/api_anon">?</small></label>
-					<div class="control-group" id="api-key-container" hidden>
-						<div class="controls">
-							<div class="input-append">
-								<input type="text" class="span4" size="16" id="api-key" value="eef75ee1f4d14ddf5e48e67e6531f739" style="display: inline-block; margin-bottom: 0;" placeholder="imgur api key"/><button type="button" class="btn" id="reset-api-key" title="Reset API key to default value">reset</button>
-							</div>
-						</div>
-					</div>
-					<div class="form-actions">
-						<button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button>
-						<button type="button" class="btn btn-large" id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button>
-					</div>
 				</fieldset>
+				<div class="form-actions">
+					<button type="button" class="btn btn-primary btn-large" id="generate" title="Generate LeMEME">Generate</button>
+					<button type="button" class="btn btn-large" id="reset" title="RESET! ALL OF THE THINGS!">Reset All</button>
+				</div>
 			</form>
 		</div>
+	</div>
+	<div class="row">
+		 Thumbnails
+	</div>
+	<div class="row">
+		<div class="well" id="about">
+		<h1>About Me<small>me</small></h1>
+		<p>I got sick of all the meme generator sites being uber laggy or putting a blank gif infront of the image so you have to link people there... It was annoying. So I decided to create this!</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="well" id="legal">
+			<h3>LeMEME Disclaimer</h3>
+			<h4>1. Acceptance of our Terms</h4>
+			<p>
+				 By visiting the website LeMEME, viewing, accessing or otherwise using any of the services or information created, collected, compiled or submitted to LeMEME, you agree to be bound by the following Terms and Conditions of Service. If you do not want to be bound by our Terms your only option is not to visit, view or otherwise use the services of LeMEME. You understand, agree and acknowledge that these Terms constitute a legally binding agreement between you and LeMEME and that your use of LeMEME shall indicate your conclusive acceptance of this agreement.
+			</p>
+			<h4>2. Provision of Services</h4>
+			<p>
+				 You agree and acknowledge that LeMEME is entitled to modify, improve or discontinue any of its services at its sole discretion and without notice to you even if it may result in you being prevented from accessing any information contained in it. Furthermore, you agree and acknowledge that LeMEME is entitled to provide services to you through subsidiaries or affiliated entities.
+			</p>
+			<h4>3. Proprietary Rights</h4>
+			<p>
+				 You acknowledge and agree that LeMEME may contain proprietary and confidential information including trademarks, service marks and patents protected by intellectual property laws and international intellectual property treaties. LeMEME authorizes you to view and make a single copy of portions of its content for offline, personal, non-commercial use. Our content may not be sold, reproduced, or distributed without our written permission. Any third-party trademarks, service marks and logos are the property of their respective owners. Any further rights not specifically granted herein are reserved.
+			</p>
+			<h4>4. Submitted Content</h4>
+			<p>
+				 When you submit content to LeMEME you simultaneously grant LeMEME an irrevocable, worldwide, royalty free license to publish, display, modify, distribute and syndicate your content worldwide. You confirm and warrant that you have the required authority to grant the above license to LeMEME.
+			</p>
+			<h4>5. Termination of Agreement</h4>
+			<p>
+				 The Terms of this agreement will continue to apply in perpetuity until terminated by either party without notice at any time for any reason. Terms that are to continue in perpetuity shall be unaffected by the termination of this agreement.
+			</p>
+			<h4>6. Disclaimer of Warranties</h4>
+			<p>
+				 You understand and agree that your use of LeMEME is entirely at your own risk and that our services are provided "As Is" and "As Available". LeMEME does not make any express or implied warranties, endorsements or representations whatsoever as to the operation of the LeMEME website, information, content, materials, or products. This shall include, but not be limited to, implied warranties of merchantability and fitness for a particular purpose and non-infringement, and warranties that access to or use of the service will be uninterrupted or error-free or that defects in the service will be corrected.
+			</p>
+			<h4>7. Limitation of Liability</h4>
+			<p>
+				 You understand and agree that LeMEME and any of its subsidiaries or affiliates shall in no event be liable for any direct, indirect, incidental, consequential, or exemplary damages. This shall include, but not be limited to damages for loss of profits, business interruption, business reputation or goodwill, loss of programs or information or other intangible loss arising out of the use of or the inability to use the service, or information, or any permanent or temporary cessation of such service or access to information, or the deletion or corruption of any content or information, or the failure to store any content or information. The above limitation shall apply whether or not LeMEME has been advised of or should have been aware of the possibility of such damages. In jurisdictions where the exclusion or limitation of liability for consequential or incidental damages is not allowed the liability of LeMEME is limited to the greatest extent permitted by law.
+			</p>
+			<h4>8. External Content</h4>
+			<p>
+				 LeMEME may include hyperlinks to third-party content, advertising or websites. You acknowledge and agree that LeMEME is not responsible for and does not endorse any advertising, products or resource available from such resources or websites.
+			</p>
+			<h4>9. Jurisdiction</h4>
+			<p>
+				 You expressly understand and agree to submit to the personal and exclusive jurisdiction of the courts of the country, state, province or territory determined solely by LeMEME to resolve any legal matter arising from this agreement or related to your use of LeMEME. If the court of law having jurisdiction, rules that any provision of the agreement is invalid, then that provision will be removed from the Terms and the remaining Terms will continue to be valid.
+			</p>
+			<h4>10. Entire Agreement</h4>
+			<p>
+				 You understand and agree that the above Terms constitute the entire general agreement between you and LeMEME. You may be subject to additional Terms and conditions when you use, purchase or access other services, affiliate services or third-party content or material.
+			</p>
+			<h4>11. Changes to the Terms</h4>
+			<p>
+				 LeMEME reserves the right to modify these Terms from time to time at our sole discretion and without any notice. Changes to our Terms become effective on the date they are posted and your continued use of LeMEME after any changes to Terms will signify your agreement to be bound by them.
+			</p>
+			<p>
+				 May 9th, 2012.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		 #Contact - pretty little form.
 	</div>
 	<hr class="soften">
 	<div class="row footer">
 		 Developed by rlemon - <a href="https://github.com/rlemon/lememe/" title="Fork on GitHub">Fork on GitHub</a>
 		<span class="pull-right">
-		<a href="http://rlemon.github.com/lememe/about.html" title="About LeMEME">About</a>
-		<a href="http://rlemon.github.com/lememe/contact.html" title="Contact rlemon">Contact</a>
-		<a href="http://rlemon.github.com/lememe/legal.html" title="Legal mumbo jumbo">Legal</a>
+			<a href="#about">About</a>
+			<a href="#legal">Legal</a>
+			<a href="#contact">Contact</a>
 		</span>
 	</div>
 </div>
-<script type='text/javascript' src='js/jquery.js'></script>
+<!-- le scripts -->
+​<script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/util.js'></script>
 <script type='text/javascript' src='js/fragBuilder.js'></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/minicolors.js"></script>
 <script type="text/javascript" src="js/notifier.js"></script>
 <script type='text/javascript' src="js/app.js"></script>
+<!-- le tracking -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-31510292-1']);
